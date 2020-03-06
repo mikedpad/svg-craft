@@ -2,7 +2,7 @@ import { createMuiTheme } from '@material-ui/core/styles';
 
 const background = {
   paper: `#EEE`,
-  default: `#fafafa`,
+  default: `#aaa`,
 };
 
 const baseFont = `'Avenir Next', Roboto, 'Helvetica Neue', Arial, sans-serif`;
