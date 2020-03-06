@@ -19,8 +19,6 @@ const Grid = ({ origin, dimensions, gridLine, borderLine }) => {
   const xLines = createLines(width, true, false, `#xAxis`);
   const yLines = createLines(height, false, true, `#yAxis`);
 
-  console.log(xLines);
-
   return (
     <>
       <defs>
@@ -70,9 +68,9 @@ Grid.propTypes = {
   origin: PropTypes.arrayOf(PropTypes.number).isRequired,
   dimensions: PropTypes.arrayOf(PropTypes.number).isRequired,
   gridLine: PropTypes.shape({
-    spacing: PropTypes.number,
-    strokeColor: PropTypes.string,
-    strokeWidth: PropTypes.number,
+    spacing: PropTypes.number.isRequired,
+    strokeColor: PropTypes.string.isRequired,
+    strokeWidth: PropTypes.number.isRequired,
   }),
   borderLine: PropTypes.shape({
     strokeColor: PropTypes.string,

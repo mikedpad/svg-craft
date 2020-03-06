@@ -20,7 +20,7 @@ const SVGCanvas = ({ dimensions }) => {
       xmlns-xlink="http://www.w3.org/1999/xlink"
     >
       {/* definitions */}
-      <Grid origin={origin} dimensions={dimensions} subdivisionSize={20} />
+      <Grid origin={origin} dimensions={dimensions} />
       <defs>
         {/* Shapes */}
 
