@@ -7,7 +7,6 @@ const useStyles = makeStyles(theme => ({
     fontFamily: theme.typography.headline,
     fontSize: `2rem`,
     margin: theme.spacing(0.5, 0),
-    textTransform: `uppercase`,
     textAlign: `center`,
   },
 }));
