@@ -1,11 +1,12 @@
 {
-  "extends": ["airbnb", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "extends": ["airbnb", "prettier", "typescript", "typescript/prettier"],
   "env": {
     "browser": true,
     "node": true
   },
-  "parser": "babel-eslint",
   "parserOptions": {
+    "project": "./tsconfig.json",
     "ecmaVersion": 2018,
     "ecmaFeatures": {
       "jsx": true,
@@ -13,13 +14,27 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["react-hooks", "better-styled-components"],
+  "plugins": ["react-hooks"],
   "root": true,
   "settings": {
-    "import/core-modules": ["react", "prop-types"]
+    "import/core-modules": ["react", "prop-types"],
+    "import/resolver": {
+      "node": true,
+      "typescript": {
+        "alwaysTryTypes": true
+      }
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx",
+        {
+          "comment": true
+        }
+      ]
+    }
   },
   "rules": {
-    "better-styled-components/sort-declarations-alphabetically": 2,
     "no-bitwise": [
       2,
       {
@@ -106,7 +121,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".js", ".jsx"]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ],
     "react/jsx-one-expression-per-line": 0,
@@ -128,6 +143,21 @@
     ],
     "react/react-in-jsx-scope": 0,
     "react-hooks/rules-of-hooks": 2,
-    "react-hooks/exhaustive-deps": 0
+    "react-hooks/exhaustive-deps": 0,
+    "prettier/prettier": 2,
+    "@typescript-eslint/quotes": [
+      2,
+      "backtick",
+      {
+        "avoidEscape": true,
+        "allowTemplateLiterals": true
+      }
+    ],
+    "@typescript-eslint/no-unused-expressions": [
+      2,
+      {
+        "allowTernary": true
+      }
+    ]
   }
 }

@@ -1,7 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import { CssBaseline, MuiThemeProvider, responsiveFontSizes } from '@material-ui/core';
 import SVGCanvas from './components/SVGCanvas';
 import Header from './components/UI/Header';
+import theme from './styles/theme';
+
+const respTheme = responsiveFontSizes(theme);
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -23,12 +27,15 @@ const App = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.container}>
-      <Header />
-      <main className={classes.main}>
-        <SVGCanvas dimensions={[200, 200]} />
-      </main>
-    </div>
+    <MuiThemeProvider theme={respTheme}>
+      <CssBaseline />
+      <div className={classes.container}>
+        <Header />
+        <main className={classes.main}>
+          <SVGCanvas dimensions={[200, 200]} />
+        </main>
+      </div>
+    </MuiThemeProvider>
   );
 };
 
