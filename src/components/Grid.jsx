@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Grid = ({ origin, dimensions, gridLine, borderLine }) => {
+const Grid = ({ id, origin, dimensions, gridLine, borderLine }) => {
   const [originX, originY] = origin;
   const [width, height] = dimensions;
   const createLines = (length, x, y, href) => {
@@ -22,7 +22,7 @@ const Grid = ({ origin, dimensions, gridLine, borderLine }) => {
   return (
     <>
       <defs>
-        <g id="grid">
+        <g id={id}>
           <path
             id="xAxis"
             d={`M${originX},${originY} h${width}`}
@@ -57,7 +57,7 @@ const Grid = ({ origin, dimensions, gridLine, borderLine }) => {
         </g>
       </defs>
 
-      <use xlinkHref="#grid" />
+      <use xlinkHref={`#${id}`} />
     </>
   );
 };
@@ -65,6 +65,7 @@ const Grid = ({ origin, dimensions, gridLine, borderLine }) => {
 export default Grid;
 
 Grid.propTypes = {
+  id: PropTypes.string.isRequired,
   origin: PropTypes.arrayOf(PropTypes.number).isRequired,
   dimensions: PropTypes.arrayOf(PropTypes.number).isRequired,
   gridLine: PropTypes.shape({
